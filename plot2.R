@@ -4,9 +4,6 @@ df <- read.table("/Users/joshuagross/Downloads/household_power_consumption.txt",
 df <- within(df, Datetime <- paste(Date, Time, sep=" "))
 df <- within(df, Datetime <- sub("(1|2)\\/(1|2)\\/", "0\\1/0\\2/", Datetime)) # add leading zeros
 df <- within(df, Datetime <- as.POSIXct(Datetime, format="%d/%m/%Y %H:%M:%S", tz="GMT"))
-#df <- within(df, Datetime <- strftime(Datetime, format="%d/%m/%Y %H:%M:%S"))
-#df <- within(df, Datetime <- format(Datetime, "%a %b %d"))
-#df <- within(df, Datetime <- as.Date(Datetime))
 
 summary(df)
 names(df)
