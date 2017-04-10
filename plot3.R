@@ -5,11 +5,6 @@ df <- within(df, Datetime <- paste(Date, Time, sep=" "))
 df <- within(df, Datetime <- sub("(1|2)\\/(1|2)\\/", "0\\1/0\\2/", Datetime)) # add leading zeros
 df <- within(df, Datetime <- as.POSIXct(Datetime, format="%d/%m/%Y %H:%M:%S", tz="GMT"))
 
-summary(df)
-names(df)
-
-print(df$Datetime)
-
 png(filename = "plot3.png",
     width = 480, height = 480, units = "px", pointsize = 12,
     bg = "white", res = NA,
